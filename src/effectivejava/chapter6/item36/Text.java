@@ -8,8 +8,9 @@ public class Text {
 
     // Any Set could be passed in, but EnumSet is clearly best
     public void applyStyles(Set<Style> styles) {
-        System.out.printf("Applying styles %s to text%n",
-                Objects.requireNonNull(styles));
+        // %n /n 回车换行
+        // System.out.printf("Applying styles %s to text/n", Objects.requireNonNull(styles));
+        System.out.printf("Applying styles %s to text%n", Objects.requireNonNull(styles));
     }
 
     // Sample use
