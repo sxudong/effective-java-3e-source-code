@@ -63,3 +63,11 @@ class Plant {
                         () -> new EnumMap<>(LifeCycle.class), toSet())));
     }
 }
+/* Output:
+ANNUAL: [Dill, Basil]
+PERENNIAL: [Rosemary, Lavendar]
+BIENNIAL: [Parsley, Carroway]
+{ANNUAL=[Dill, Basil], PERENNIAL=[Rosemary, Lavendar], BIENNIAL=[Parsley, Carroway]}
+{PERENNIAL=[Lavendar, Rosemary], ANNUAL=[Basil, Dill], BIENNIAL=[Carroway, Parsley]}
+{ANNUAL=[Dill, Basil], PERENNIAL=[Rosemary, Lavendar], BIENNIAL=[Parsley, Carroway]}
+ */

@@ -1,6 +1,9 @@
 package effectivejava.chapter4.item17;
 
-// Immutable complex number class (Pages 81-82)
+/**
+ * 第17条：使可变性最小化
+ */
+// Immutable complex number class 不变复数类 (Pages 65-66)
 public final class Complex {
     private final double re;
     private final double im;
@@ -17,13 +20,16 @@ public final class Complex {
     public double realPart()      { return re; }
     public double imaginaryPart() { return im; }
 
-    public Complex plus(Complex c) {
-        return new Complex(re + c.re, im + c.im);
-    }
-
-    // Static factory, used in conjunction with private constructor (Page 85)
+    // Static factory, used in conjunction with private constructor (Page 68)
+    // 静态工厂，与私有构造函数结合使用
     public static Complex valueOf(double re, double im) {
         return new Complex(re, im);
+    }
+
+    // 方法名是介词，这是为了强调该方法不会改变对象的值
+    public Complex plus(Complex c) {
+        // 创建并返回新的Complex实例，而不是修改这个实例。
+        return new Complex(re + c.re, im + c.im);
     }
 
     public Complex minus(Complex c) {

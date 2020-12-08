@@ -3,6 +3,7 @@ package effectivejava.chapter6.item36;
 import java.util.*;
 
 // EnumSet - a modern replacement for bit fields (Page 170)
+// 第36条：用 EnumSet 代替位域
 public class Text {
     public enum Style {BOLD, ITALIC, UNDERLINE, STRIKETHROUGH}
 
@@ -19,3 +20,7 @@ public class Text {
         text.applyStyles(EnumSet.of(Style.BOLD, Style.ITALIC));
     }
 }
+/* Output:
+Applying styles [BOLD, ITALIC] to text
+
+ */

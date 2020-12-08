@@ -1,7 +1,7 @@
 package effectivejava.chapter4.item18;
 import java.util.*;
 
-// Reusable forwarding class (Page 90)
+// Reusable forwarding class 可重复使用的转发类 (Page 90)
 public class ForwardingSet<E> implements Set<E> {
     private final Set<E> s;
     public ForwardingSet(Set<E> s) { this.s = s; }

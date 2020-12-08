@@ -1,8 +1,11 @@
 package effectivejava.chapter4.item22.constantutilityclass;
 
-// Constant utility class (Page 108)
+/**
+ * 第22条：用接口定义类型
+ */
+// Constant utility class 常量实用程序类 (Page 85)
 public class PhysicalConstants {
-  private PhysicalConstants() { }  // Prevents instantiation
+  private PhysicalConstants() { }  // Prevents instantiation 防止实例化
 
   // Avogadro's number (1/mol)
   public static final double AVOGADROS_NUMBER = 6.022_140_857e23;

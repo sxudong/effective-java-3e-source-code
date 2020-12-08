@@ -1,8 +1,10 @@
 package effectivejava.chapter6.item38;
+
 import java.util.*;
 
 // Emulated extensible enum (Pages 176-9)
 public enum ExtendedOperation implements Operation {
+
     EXP("^") {
         public double apply(double x, double y) {
             return Math.pow(x, y);
@@ -13,11 +15,15 @@ public enum ExtendedOperation implements Operation {
             return x % y;
         }
     };
+
     private final String symbol;
+
     ExtendedOperation(String symbol) {
         this.symbol = symbol;
     }
-    @Override public String toString() {
+
+    @Override
+    public String toString() {
         return symbol;
     }
 
@@ -36,10 +42,14 @@ public enum ExtendedOperation implements Operation {
 
     // Using a collection instance to represent a collection of extended enums (page 178)
     public static void main(String[] args) {
-        double x = Double.parseDouble(args[0]);
-        double y = Double.parseDouble(args[1]);
+//        double x = Double.parseDouble(args[0]);
+//        double y = Double.parseDouble(args[1]);
+        double x = 100;
+        double y = 200;
+        // ExtendedOperation.values()返回的是toString()的运算符号
         test(Arrays.asList(ExtendedOperation.values()), x, y);
     }
+
     private static void test(Collection<? extends Operation> opSet,
                              double x, double y) {
         for (Operation op : opSet)
@@ -47,3 +57,7 @@ public enum ExtendedOperation implements Operation {
                     x, op, y, op.apply(x, y));
     }
 }
+/* Output:
+100.000000 ^ 200.000000 = Infinity
+100.000000 % 200.000000 = 100.000000
+ */

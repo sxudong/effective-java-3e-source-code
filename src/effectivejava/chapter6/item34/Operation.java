@@ -38,10 +38,21 @@ public enum Operation {
     }
 
     public static void main(String[] args) {
-        double x = Double.parseDouble(args[0]);
-        double y = Double.parseDouble(args[1]);
+//        double x = Double.parseDouble(args[0]);
+//        double y = Double.parseDouble(args[1]);
+        double x = 100;
+        double y = 200;
         for (Operation op : Operation.values())
             System.out.printf("%f %s %f = %f%n",
                     x, op, y, op.apply(x, y));
+
+        System.out.println(Operation.PLUS.apply(1,2));
     }
 }
+/* Output:
+100.000000 + 200.000000 = 300.000000
+100.000000 - 200.000000 = -100.000000
+100.000000 * 200.000000 = 20000.000000
+100.000000 / 200.000000 = 0.500000
+3.0
+ */

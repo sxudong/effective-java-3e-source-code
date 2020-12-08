@@ -1,5 +1,8 @@
 package effectivejava.chapter3.item12;
 
+/**
+ * 第12条：始终要覆盖toString
+ */
 // Adding a toString method to PhoneNumber (page 52)
 public final class PhoneNumber {
     private final short areaCode, prefix, lineNum;
@@ -34,6 +37,7 @@ public final class PhoneNumber {
     }
 
     /**
+     * 无论是否决定指定格式，都应该在文档中注释明确地表时你的意图。
      * Returns the string representation of this phone number.
      * The string consists of twelve characters whose format is
      * "XXX-YYY-ZZZZ", where XXX is the area code, YYY is the
@@ -45,13 +49,16 @@ public final class PhoneNumber {
      * For example, if the value of the line number is 123, the last
      * four characters of the string representation will be "0123".
      */
-//    @Override public String toString() {
-//        return String.format("%03d-%03d-%04d",
-//                areaCode, prefix, lineNum);
-//    }
+    @Override public String toString() {
+        return String.format("%03d-%03d-%04d",
+                areaCode, prefix, lineNum);
+    }
 
     public static void main(String[] args) {
         PhoneNumber jenny = new PhoneNumber(707, 867, 5309);
         System.out.println("Jenny's number: " + jenny);
     }
 }
+/* Output:
+Jenny's number: 707-867-5309
+ */

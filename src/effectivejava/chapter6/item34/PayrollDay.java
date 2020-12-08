@@ -44,3 +44,12 @@ enum PayrollDay {
             System.out.printf("%-10s%d%n", day, day.pay(8 * 60, 1));
     }
 }
+/* Output:
+MONDAY    480
+TUESDAY   480
+WEDNESDAY 480
+THURSDAY  480
+FRIDAY    480
+SATURDAY  720
+SUNDAY    720
+ */

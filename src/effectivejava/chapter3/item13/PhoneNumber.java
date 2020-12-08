@@ -3,6 +3,9 @@ package effectivejava.chapter3.item13;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 第13条：谨慎地覆盖clone
+ */
 // Adding a clone method to PhoneNumber (page 59)
 public final class PhoneNumber implements Cloneable {
     private final short areaCode, prefix, lineNum;
@@ -37,6 +40,7 @@ public final class PhoneNumber implements Cloneable {
     }
 
     /**
+     * 无论是否决定指定格式，都应该在文档中注释明确地表时你的意图。
      * Returns the string representation of this phone number.
      * The string consists of twelve characters whose format is
      * "XXX-YYY-ZZZZ", where XXX is the area code, YYY is the
@@ -54,6 +58,7 @@ public final class PhoneNumber implements Cloneable {
     }
 
     // Clone method for class with no references to mutable state (Page 59)
+    // 不可变的类永远都不应该提供clone的方法
     @Override public PhoneNumber clone() {
         try {
             return (PhoneNumber) super.clone();
@@ -64,8 +69,13 @@ public final class PhoneNumber implements Cloneable {
 
     public static void main(String[] args) {
         PhoneNumber pn = new PhoneNumber(707, 867, 5309);
+        System.out.println(pn.clone());
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(pn, "Jenny");
         System.out.println(m.get(pn.clone()));
     }
 }
+/* Output:
+707-867-5309
+Jenny
+ */

@@ -37,6 +37,7 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     }
 
     /**
+     * 无论是否决定指定格式，都应该在文档中注释明确地表时你的意图。
      * Returns the string representation of this phone number.
      * The string consists of twelve characters whose format is
      * "XXX-YYY-ZZZZ", where XXX is the area code, YYY is the
@@ -53,7 +54,7 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
                 areaCode, prefix, lineNum);
     }
 
-//    // Multiple-field Comparable with primitive fields (page 69)
+//    // Multiple-field Comparable with primitive fields 多字段比较 (page 69)
 //    public int compareTo(PhoneNumber pn) {
 //        int result = Short.compare(areaCode, pn.areaCode);
 //        if (result == 0)  {
@@ -64,7 +65,7 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 //        return result;
 //    }
 
-    // Comparable with comparator construction methods (page 70)
+    // Comparable with comparator construction methods 比较构造器方法 (page 70)
     private static final Comparator<PhoneNumber> COMPARATOR =
             comparingInt((PhoneNumber pn) -> pn.areaCode)
                     .thenComparingInt(pn -> pn.prefix)
@@ -88,3 +89,6 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
         System.out.println(s);
     }
 }
+/* Output:
+[035-159-9026, 317-248-4786, 380-653-1886, 406-647-4175, 545-369-9480, 729-459-1752, 835-495-0959, 835-976-1467, 890-106-4794, 967-218-9763]
+ */

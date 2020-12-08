@@ -7,7 +7,7 @@ import java.util.Objects;
 
 // Adds a value component without violating the equals contract (page 44)
 public class ColorPoint {
-    private final Point point;
+    private final Point point; // 私有的Point域
     private final Color color;
 
     public ColorPoint(int x, int y, Color color) {
@@ -18,7 +18,7 @@ public class ColorPoint {
     /**
      * Returns the point-view of this color point.
      */
-    public Point asPoint() {
+    public Point asPoint() { // 公有的视图
         return point;
     }
 
@@ -31,5 +31,16 @@ public class ColorPoint {
 
     @Override public int hashCode() {
         return 31 * point.hashCode() + color.hashCode();
+    }
+
+    public static void main(String[] args) {
+        ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+        Point p2 = new Point(1, 2);
+        ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
+
+        System.out.printf("%s %s %s%n",
+                p1.equals(p2), p2.equals(p3), p1.equals(p3)); // false false false
+
+        System.out.println(p1.equals(null)); // false
     }
 }

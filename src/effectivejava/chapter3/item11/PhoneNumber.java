@@ -1,6 +1,9 @@
 package effectivejava.chapter3.item11;
 import java.util.*;
 
+/**
+ * 第11条：覆盖equals时总要覆盖hashcode
+ */
 // Shows the need for overriding hashcode when you override equals (Pages 50-53 )
 public final class PhoneNumber {
     private final short areaCode, prefix, lineNum;
@@ -30,20 +33,21 @@ public final class PhoneNumber {
 
     // Broken with no hashCode; works with any of the three below
 
-//    // Typical hashCode method (Page 52)
-//    @Override public int hashCode() {
-//        int result = Short.hashCode(areaCode);
-//        result = 31 * result + Short.hashCode(prefix);
-//        result = 31 * result + Short.hashCode(lineNum);
-//        return result;
-//    }
+//    // Typical hashCode method 典型的hashCode方法 (Page 52)
+    @Override public int hashCode() {
+        int result = Short.hashCode(areaCode);
+        result = 31 * result + Short.hashCode(prefix);
+        result = 31 * result + Short.hashCode(lineNum);
+        return result;
+    }
 
-//    // One-line hashCode method - mediocre performance  (page 53)
+    // One-line hashCode method - mediocre performance 中等表现  (page 53)
+    // Objects类有一个静态方法，它带有任意数量的对象，并为它们返回一个散列码。这个方法名为 hash，遗憾的是运行速度更慢一些。
 //    @Override public int hashCode() {
 //        return Objects.hash(lineNum, prefix, areaCode);
 //    }
 
-//    // hashCode method with lazily initialized cached hash code  (page 53)
+//    // hashCode method with lazily initialized cached hash code  定义一个私有属性延迟初始化(page 43)
 //    private int hashCode; // Automatically initialized to 0
 //
 //    @Override public int hashCode() {
@@ -63,3 +67,6 @@ public final class PhoneNumber {
         System.out.println(m.get(new PhoneNumber(707, 867, 5309)));
     }
 }
+/* Output:
+Jenny
+ */

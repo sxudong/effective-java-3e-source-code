@@ -1,11 +1,15 @@
 package effectivejava.chapter4.item16;
 
-// Public class with exposed immutable fields - questionable   (Page 79)
+/**
+ * 第16条：要在公有类而非公有域中使用访问方法
+ */
+// Public class with exposed immutable fields - questionable   (Page 64)
+// 具有公有的不可变字段域 - 可疑
 public final class Time {
     private static final int HOURS_PER_DAY    = 24;
     private static final int MINUTES_PER_HOUR = 60;
 
-    public final int hour;
+    public final int hour;    // 公有final不可变域
     public final int minute;
 
     public Time(int hour, int minute) {

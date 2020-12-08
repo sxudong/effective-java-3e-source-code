@@ -5,10 +5,13 @@ import java.lang.reflect.*;
 
 // Program to process marker annotations and annotations with a parameter (Page 184)
 public class RunTests {
+    // 运行测试程序，需要在IDEA 右上角锤子图标边的下拉菜单中找到“Edit Configurations”
+    // 设置当前工个目录为"F:\code\effective-java-3e-source-code\target\classes"
     public static void main(String[] args) throws Exception {
         int tests = 0;
         int passed = 0;
-        Class<?> testClass = Class.forName(args[0]);
+        //Class<?> testClass = Class.forName(args[0]);
+        Class<?> testClass = Class.forName("effectivejava.chapter6.item39.annotationwithparameter.Sample2");
         for (Method m : testClass.getDeclaredMethods()) {
             if (m.isAnnotationPresent(Test.class)) {
                 tests++;
@@ -49,3 +52,8 @@ public class RunTests {
                 passed, tests - passed);
     }
 }
+/* Output:
+Test public static void effectivejava.chapter6.item39.annotationwithparameter.Sample2.m2() failed: expected java.lang.ArithmeticException, got java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
+Test public static void effectivejava.chapter6.item39.annotationwithparameter.Sample2.m3() failed: no exception
+Passed: 1, Failed: 2
+ */

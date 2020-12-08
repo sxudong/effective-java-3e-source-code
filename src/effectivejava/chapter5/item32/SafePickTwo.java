@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * 第32条：合理的结合泛型和可变参数
+ */
 // Safe version of PickTwo using lists instead of arrays (Page 150)
 public class SafePickTwo {
     static <T> List<T> pickTwo(T a, T b, T c) {
