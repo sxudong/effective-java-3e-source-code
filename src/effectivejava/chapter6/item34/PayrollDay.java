@@ -3,6 +3,7 @@ package effectivejava.chapter6.item34;
 import static effectivejava.chapter6.item34.PayrollDay.PayType.*;
 
 // The strategy enum pattern (Page 166)
+// 策略枚举模式
 enum PayrollDay {
     MONDAY(WEEKDAY), TUESDAY(WEEKDAY), WEDNESDAY(WEEKDAY),
     THURSDAY(WEEKDAY), FRIDAY(WEEKDAY),

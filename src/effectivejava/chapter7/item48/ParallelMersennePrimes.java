@@ -5,7 +5,11 @@ import java.util.stream.Stream;
 
 import static java.math.BigInteger.*;
 
+/**
+ * 第48条：谨慎使用Stream并行
+ */
 // Parallel stream-based program to generate the first 20 Mersenne primes - HANGS!!! (Page 222)
+// 基于并行流的程序，以生成前20个梅森素数-HAN !!!！
 public class ParallelMersennePrimes {
     public static void main(String[] args) {
         primes().map(p -> TWO.pow(p.intValueExact()).subtract(ONE))
@@ -19,3 +23,4 @@ public class ParallelMersennePrimes {
         return Stream.iterate(TWO, BigInteger::nextProbablePrime);
     }
 }
+/* 无输出，电脑卡死 */

@@ -1,6 +1,7 @@
 package effectivejava.chapter6.item34;
 
 // Takes earth-weight and prints table of weights on all planets (Page 160)
+// 获取地球重量并打印所有行星的重量表
 public class WeightTable {
    public static void main(String[] args) {
       //double earthWeight = Double.parseDouble(args[0]);

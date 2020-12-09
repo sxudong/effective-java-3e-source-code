@@ -4,6 +4,7 @@ public enum Operation {
     PLUS, MINUS, TIMES, DIVIDE;
 
     // Do the arithmetic operation represented by this constant
+    // 进行此常数表示的算术运算
     public double apply(double x, double y) {
         switch (this) {
             case PLUS:
@@ -19,6 +20,6 @@ public enum Operation {
     }
 
     public static void main(String[] args) {
-        System.out.println(Operation.PLUS.apply(1,2));
+        System.out.println(Operation.PLUS.apply(1,2)); // 3.0
     }
 }

@@ -1,6 +1,7 @@
 package effectivejava.chapter6.item34;
 
 // Enum type with data and behavior  (159-160)
+// 带有数据和行为的枚举类型
 public enum Planet {
     MERCURY(3.302e+23, 2.439e6),
     VENUS  (4.869e+24, 6.052e6),
@@ -16,6 +17,7 @@ public enum Planet {
     private final double surfaceGravity; // In m / s^2
 
     // Universal gravitational constant in m^3 / kg s^2
+    // 万有引力常数m ^ 3 / kg s ^ 2
     private static final double G = 6.67300E-11;
 
     // Constructor

@@ -1,6 +1,7 @@
 package effectivejava.chapter6.item34;
 
 // Switch on an enum to simulate a missing method (Page 167)
+// 开启枚举以模拟缺少的方法
 public class Inverse {
     public static Operation inverse(Operation op) {
         switch(op) {
@@ -14,8 +15,10 @@ public class Inverse {
     }
 
     public static void main(String[] args) {
-        double x = Double.parseDouble(args[0]);
-        double y = Double.parseDouble(args[1]);
+//        double x = Double.parseDouble(args[0]);
+//        double y = Double.parseDouble(args[1]);
+        double x = Double.parseDouble("1");
+        double y = Double.parseDouble("3");
         for (Operation op : Operation.values()) {
             Operation invOp = inverse(op);
             System.out.printf("%f %s %f %s %f = %f%n",
@@ -23,3 +26,9 @@ public class Inverse {
         }
     }
 }
+/* Output:
+1.000000 + 3.000000 - 3.000000 = 1.000000
+1.000000 - 3.000000 + 3.000000 = 1.000000
+1.000000 * 3.000000 / 3.000000 = 1.000000
+1.000000 / 3.000000 * 3.000000 = 1.000000
+ */

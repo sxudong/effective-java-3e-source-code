@@ -28,11 +28,13 @@ public enum Operation {
     public abstract double apply(double x, double y);
 
     // Implementing a fromString method on an enum type (Page 164)
+    // 在枚举类型上实现fromString方法
     private static final Map<String, Operation> stringToEnum =
             Stream.of(values()).collect(
                     toMap(Object::toString, e -> e));
 
     // Returns Operation for string, if any
+    // 返回字符串操作（如果有）
     public static Optional<Operation> fromString(String symbol) {
         return Optional.ofNullable(stringToEnum.get(symbol));
     }
@@ -47,6 +49,8 @@ public enum Operation {
                     x, op, y, op.apply(x, y));
 
         System.out.println(Operation.PLUS.apply(1,2));
+        System.out.println(stringToEnum);
+        System.out.println(fromString("/").get());
     }
 }
 /* Output:
@@ -55,4 +59,6 @@ public enum Operation {
 100.000000 * 200.000000 = 20000.000000
 100.000000 / 200.000000 = 0.500000
 3.0
+{*=*, +=+, -=-, /=/}
+/
  */
