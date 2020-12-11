@@ -2,7 +2,7 @@ package effectivejava.chapter4.item18;
 import java.util.*;
 
 /**
- * 第18条：复合优先于继承
+ * 第18条：组合优先于继承
  * @param <E>
  */
 // Wrapper class - uses composition in place of inheritance  (Page 90)
