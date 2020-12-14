@@ -1,7 +1,11 @@
 package effectivejava.chapter5.item26;
 import java.util.*;
 
+/**
+ * 第26条：请不要使用原生态类型
+ */
 // Fails at runtime - unsafeAdd method uses a raw type (List)!  (Page 119)
+// 运行时失败-unsafeAdd方法使用原始类型
 public class Raw {
     public static void main(String[] args) {
         List<String> strings = new ArrayList<>();

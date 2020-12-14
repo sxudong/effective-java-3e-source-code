@@ -5,9 +5,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 
-// Documentation comment examples (Pages 255-9)
+/**
+ * 第56条：为所有导出的API元素编写文档注释
+ * 导出JavaDoc文档：Tools -> Generate JavaDoc
+ * @param <E>
+ */
+// Documentation comment examples 文档注释示例 (Pages 255-9)
 public class DocExamples<E> {
-    // Method comment (Page 255)
+    // Method comment 方法注释 (Page 255)
     /**
      * Returns the element at the specified position in this list.
      *
@@ -26,6 +31,7 @@ public class DocExamples<E> {
     }
 
     // Use of @implSpec to describe self-use patterns & other visible implementation details. (Page 256)
+    // 使用 @implSpec 来描述自用模式和其他可见的实现细节。
     /**
      * Returns true if this collection is empty.
      *
@@ -38,6 +44,7 @@ public class DocExamples<E> {
     }
 
     // Use of the @literal tag to include HTML and javadoc metacharacters in javadoc comments. (Page 256)
+    // 使用@literal标记在javadoc注释中包含HTML和javadoc元字符。
     /**
      * A geometric series converges if {@literal |r| < 1}.
      */
@@ -45,6 +52,7 @@ public class DocExamples<E> {
     }
 
     // Controlling summary description when there is a period in the first "sentence" of doc comment. (Page 257)
+    // 当文档注释的第一个“句子”中有句点时，控制摘要描述。
     /**
      * A suspect, such as Colonel Mustard or {@literal Mrs. Peacock}.
      */
@@ -54,13 +62,14 @@ public class DocExamples<E> {
 
 
     // Generating a javadoc index entry in Java 9 and later releases. (Page 258)
+    // 在Java 9和更高版本中生成javadoc索引条目。
     /**
      * This method complies with the {@index IEEE 754} standard.
      */
     public void fragment2() {
     }
 
-    // Documenting enum constants (Page 258)
+    // Documenting enum constants 为枚举常量编写文档 (Page 258)
     /**
      * An instrument section of a symphony orchestra.
      */
@@ -78,7 +87,7 @@ public class DocExamples<E> {
         STRING;
     }
 
-    // Documenting an annotation type (Page 259)
+    // Documenting an annotation type 为注释类型编写文档 (Page 259)
     /**
      * Indicates that the annotated method is a test method that
      * must throw the designated exception to pass.

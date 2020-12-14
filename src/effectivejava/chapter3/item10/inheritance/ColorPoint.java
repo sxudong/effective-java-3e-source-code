@@ -12,14 +12,14 @@ public class ColorPoint extends Point {
         this.color = color;
     }
 
-    // Broken - violates symmetry!  (Page 41)
+    // Broken - violates symmetry!  (Page 41) 损坏-违反对称！
     @Override public boolean equals(Object o) {
         if (!(o instanceof ColorPoint))
             return false;
         return super.equals(o) && ((ColorPoint) o).color == color;
     }
 
-    // Broken - violates transitivity! (page 42)
+    // Broken - violates transitivity! (page 42) 损坏-违反传递性！
     // 这种方法提供了对称性，但是却牺牲了传递性
 //    @Override public boolean equals(Object o) {
 //        if (!(o instanceof Point))

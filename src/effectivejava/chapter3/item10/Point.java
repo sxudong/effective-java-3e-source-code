@@ -1,6 +1,6 @@
 package effectivejava.chapter3.item10;
 
-// Simple immutable two-dimensional integer point class (Page 37)
+// Simple immutable two-dimensional integer point class (Page 37) 简单不变二维整数点类
 public class Point {
     private final int x;
     private final int y;
@@ -17,7 +17,7 @@ public class Point {
         return p.x == x && p.y == y;
     }
 
-//    // Broken - violates Liskov substitution principle (page 43)
+//    // Broken - violates Liskov substitution principle (page 43) 损坏-违反了Liskov替代原则
 //    @Override public boolean equals(Object o) {
 //        if (o == null || o.getClass() != getClass())
 //            return false;

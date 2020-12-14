@@ -7,7 +7,7 @@ import java.lang.ref.Cleaner;
 public class Room implements AutoCloseable { // 实现了AutoCloseable接口
     private static final Cleaner cleaner = Cleaner.create();
 
-    // Resource that requires cleaning. Must not refer to Room!
+    // Resource that requires cleaning. Must not refer to Room! 需要清理的资源。不能引用Room！
     // 内嵌的静态类State保存清除方法清除房间所需要的资源
     private static class State implements Runnable {
         int numJunkPiles; // Number of junk piles in this room 表示房间的复杂度
@@ -16,7 +16,7 @@ public class Room implements AutoCloseable { // 实现了AutoCloseable接口
             this.numJunkPiles = numJunkPiles;
         }
 
-        // Invoked by close method or cleaner
+        // Invoked by close method or cleaner 通过封闭方法或Cleaner对象调用
         @Override
         public void run() {
             System.out.println("Cleaning room");
@@ -25,7 +25,7 @@ public class Room implements AutoCloseable { // 实现了AutoCloseable接口
     }
 
     // The state of this room, shared with our cleanable
-    // room的状态，共享可清除
+    // 房间的状态
     private final State state;
 
     // Our cleanable. Cleans the room when it’s eligible for gc

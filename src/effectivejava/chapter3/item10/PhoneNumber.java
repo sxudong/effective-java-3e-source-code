@@ -1,6 +1,7 @@
 package effectivejava.chapter3.item10;
 
 // Class with a typical equals method (Page 48)
+// 使用典型的equals方法的类
 public final class PhoneNumber {
     private final short areaCode, prefix, lineNum;
 
