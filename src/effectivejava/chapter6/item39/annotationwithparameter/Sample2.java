@@ -4,6 +4,7 @@ import effectivejava.chapter6.item39.annotationwithparameter.ExceptionTest;
 import java.util.*;
 
 // Program containing annotations with a parameter (Page 183)
+// 程序包含带参数的注释
 public class Sample2 {
     @ExceptionTest(ArithmeticException.class)
     public static void m1() {  // Test should pass

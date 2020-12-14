@@ -4,7 +4,11 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
+/**
+ * 第37条： 使用 EnumMap 替代序数索引
+ */
 // Using a nested EnumMap to associate data with enum pairs - (Pages 174-5)
+// 使用嵌套的EnumMap将数据与枚举对关联
 public enum Phase {
     // 固体，液体，气体
     SOLID, LIQUID, GAS;

@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 //Container annotation for the repeatable ExceptionTest annotation (Page 186)
+// 可重复的ExceptionTest批注的容器批注
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface ExceptionTestContainer {

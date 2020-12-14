@@ -2,6 +2,9 @@ package effectivejava.chapter6.item34;
 
 import static effectivejava.chapter6.item34.PayrollDay.PayType.*;
 
+/**
+ * 第34条： 使用枚举类型替代整型常量
+ */
 // The strategy enum pattern (Page 166)
 // 策略枚举模式
 enum PayrollDay {
@@ -17,7 +20,7 @@ enum PayrollDay {
         return payType.pay(minutesWorked, payRate);
     }
 
-    // The strategy enum type
+    // The strategy enum type 策略枚举类型
     enum PayType {
         WEEKDAY {
             int overtimePay(int minsWorked, int payRate) {

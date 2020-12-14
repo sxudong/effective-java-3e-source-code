@@ -1,7 +1,11 @@
 package effectivejava.chapter6.item40;
 import java.util.*;
 
+/**
+ * 第40条：始终使用 Override 注解
+ */
 // Can you spot the bug? (Page 188)
+// 你可以发现错误吗？
 public class Bigram {
     private final char first;
     private final char second;

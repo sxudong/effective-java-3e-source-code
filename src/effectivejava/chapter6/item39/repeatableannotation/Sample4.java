@@ -3,7 +3,7 @@ package effectivejava.chapter6.item39.repeatableannotation;
 import java.util.ArrayList;
 import java.util.List;
 
-// Program containing repeatable annotations (Page 186)
+// Program containing repeatable annotations 包含可重复注释的程序 (Page 186)
 public class Sample4 {
     @ExceptionTest(ArithmeticException.class)
     public static void m1() {  // Test should pass
@@ -21,6 +21,7 @@ public class Sample4 {
     public static void m3() { }  // Should fail (no exception)
 
     // Code containing a repeated annotation (Page 186)
+    // 包含重复注释的代码
     @ExceptionTest(IndexOutOfBoundsException.class)
     @ExceptionTest(NullPointerException.class)
     public static void doublyBad() {
@@ -28,6 +29,7 @@ public class Sample4 {
 
         // The spec permits this staticfactory to throw either
         // IndexOutOfBoundsException or NullPointerException
+        // 规范允许此staticfactory抛出IndexOutOfBoundsException或NullPointerException
         list.addAll(5, null);
     }
 }

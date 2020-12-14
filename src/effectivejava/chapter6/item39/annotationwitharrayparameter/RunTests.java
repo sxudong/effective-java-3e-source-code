@@ -3,7 +3,11 @@ import effectivejava.chapter6.item39.markerannotation.Test;
 
 import java.lang.reflect.*;
 
+/**
+ * 第39条： 注解优于命名模式
+ */
 // Program to process marker annotations and annotations with array parameter (Page 185)
+// 程序处理标记注释和带有数组参数的注释
 public class RunTests {
     public static void main(String[] args) throws Exception {
         int tests = 0;
@@ -25,6 +29,7 @@ public class RunTests {
             }
 
             // Code to process annotations with array parameter (Page 185)
+            // 用数组参数处理注释的代码
             if (m.isAnnotationPresent(ExceptionTest.class)) {
                 tests++;
                 try {

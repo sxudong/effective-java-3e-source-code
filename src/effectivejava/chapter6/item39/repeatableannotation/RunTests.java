@@ -5,7 +5,11 @@ import effectivejava.chapter6.item39.markerannotation.Test;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/**
+ * 第39条： 注解优于命名模式
+ */
 // Program to process marker annotations and repeatable annotations (Page 187)
+// 程序处理标记注释和可重复注释
 public class RunTests {
     public static void main(String[] args) throws Exception {
         int tests = 0;
@@ -26,7 +30,7 @@ public class RunTests {
                 }
             }
 
-            // Processing repeatable annotations (Page 187)
+            // Processing repeatable annotations 处理可重复的注释 (Page 187)
             if (m.isAnnotationPresent(ExceptionTest.class)
                     || m.isAnnotationPresent(ExceptionTestContainer.class)) {
                 tests++;

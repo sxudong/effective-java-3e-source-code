@@ -1,6 +1,6 @@
 package effectivejava.chapter6.item39.markerannotation;
 
-// Program containing marker annotations (Page 181)
+// Program containing marker annotations 包含标记注释的程序 (Page 181)
 public class Sample {
     @Test
     public static void m1() {
@@ -19,7 +19,7 @@ public class Sample {
 
     @Test
     public void m5() {
-    }   // INVALID USE: nonstatic method
+    }   // INVALID USE: nonstatic method 无效使用：非静态方法
 
     public static void m6() {
     }

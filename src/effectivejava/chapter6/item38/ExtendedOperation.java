@@ -2,7 +2,10 @@ package effectivejava.chapter6.item38;
 
 import java.util.*;
 
-// Emulated extensible enum (Pages 176-9)
+/**
+ * 第38条：使用接口模拟可扩展的枚举
+ */
+// Emulated extensible enum 模拟可扩展枚举 (Pages 176-9)
 public enum ExtendedOperation implements Operation {
 
     EXP("^") {
@@ -27,7 +30,8 @@ public enum ExtendedOperation implements Operation {
         return symbol;
     }
 
-//    // Using an enum class object to represent a collection of extended enums (page 178)
+    // Using an enum class object to represent a collection of extended enums (page 178)
+    // 使用枚举类对象表示扩展枚举的集合
 //    public static void main(String[] args) {
 //        double x = Double.parseDouble(args[0]);
 //        double y = Double.parseDouble(args[1]);
@@ -41,6 +45,7 @@ public enum ExtendedOperation implements Operation {
 //    }
 
     // Using a collection instance to represent a collection of extended enums (page 178)
+    // 使用集合实例表示扩展枚举的集合
     public static void main(String[] args) {
 //        double x = Double.parseDouble(args[0]);
 //        double y = Double.parseDouble(args[1]);

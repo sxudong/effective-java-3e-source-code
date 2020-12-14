@@ -4,7 +4,11 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
+/**
+ * 第34条： 使用枚举类型替代整型常量
+ */
 // Enum type with constant-specific class bodies and data (Pages 163-4)
+// 具有特定于常量的类主体和数据的枚举类型
 public enum Operation {
     PLUS("+") {
         public double apply(double x, double y) { return x + y; }

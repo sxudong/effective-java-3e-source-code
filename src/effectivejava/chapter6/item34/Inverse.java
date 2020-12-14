@@ -1,5 +1,8 @@
 package effectivejava.chapter6.item34;
 
+/**
+ * 第34条： 使用枚举类型替代整型常量
+ */
 // Switch on an enum to simulate a missing method (Page 167)
 // 开启枚举以模拟缺少的方法
 public class Inverse {

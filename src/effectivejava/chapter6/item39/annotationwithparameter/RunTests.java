@@ -3,7 +3,11 @@ package effectivejava.chapter6.item39.annotationwithparameter;
 import effectivejava.chapter6.item39.markerannotation.Test;
 import java.lang.reflect.*;
 
+/**
+ * 第39条： 注解优于命名模式
+ */
 // Program to process marker annotations and annotations with a parameter (Page 184)
+// 程序处理标记注释和带参数的注释
 public class RunTests {
     // 运行测试程序，需要在IDEA 右上角锤子图标边的下拉菜单中找到“Edit Configurations”
     // 设置当前工个目录为"F:\code\effective-java-3e-source-code\target\classes"

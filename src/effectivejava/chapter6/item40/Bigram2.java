@@ -3,7 +3,10 @@ package effectivejava.chapter6.item40;
 import java.util.HashSet;
 import java.util.Set;
 
-// Fixed Bigram class (Page 189)
+/**
+ * 第40条：始终使用 Override 注解
+ */
+// Fixed Bigram class 固定的Bigram类 (Page 189)
 public class Bigram2 {
     private final char first;
     private final char second;

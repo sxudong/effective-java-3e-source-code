@@ -4,6 +4,9 @@ package effectivejava.chapter6.item39.markerannotation;
 
 import java.lang.reflect.*;
 
+/**
+ * 第39条： 注解优于命名模式
+ */
 // 运行测试程序，需要在IDEA 右上角锤子图标边的下拉菜单中找到“Edit Configurations”
 // 设置当前工个目录为"F:\code\effective-java-3e-source-code\target\classes"
 public class RunTests {

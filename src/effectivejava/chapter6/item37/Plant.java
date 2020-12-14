@@ -3,9 +3,13 @@ import java.util.*;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toSet;
 
+/**
+ * 第37条： 使用 EnumMap 替代序数索引
+ */
 // Using an EnumMap to associate data with an enum (Pages 171-3)
+// 使用EnumMap将数据与枚举关联
 
-// Simplistic class representing a plant (Page 171)
+// Simplistic class representing a plant 代表植物的简单类 (Page 171)
 class Plant {
     enum LifeCycle { ANNUAL, PERENNIAL, BIENNIAL }
 
@@ -32,6 +36,7 @@ class Plant {
         };
 
         // Using ordinal() to index into an array - DON'T DO THIS!  (Page 171)
+        // 使用ordinal（）索引到数组中-请勿这样做！
         Set<Plant>[] plantsByLifeCycleArr =
                 (Set<Plant>[]) new Set[Plant.LifeCycle.values().length];
         for (int i = 0; i < plantsByLifeCycleArr.length; i++)
@@ -45,6 +50,7 @@ class Plant {
         }
 
         // Using an EnumMap to associate data with an enum (Page 172)
+        // 使用EnumMap将数据与枚举关联
         Map<Plant.LifeCycle, Set<Plant>> plantsByLifeCycle =
                 new EnumMap<>(Plant.LifeCycle.class);
         for (Plant.LifeCycle lc : Plant.LifeCycle.values())
@@ -54,10 +60,12 @@ class Plant {
         System.out.println(plantsByLifeCycle);
 
         // Naive stream-based approach - unlikely to produce an EnumMap!  (Page 172)
+        // Naive基于流的方法-不可能生成EnumMap！
         System.out.println(Arrays.stream(garden)
                 .collect(groupingBy(p -> p.lifeCycle)));
 
         // Using a stream and an EnumMap to associate data with an enum (Page 173)
+        // 使用流和EnumMap将数据与枚举关联
         System.out.println(Arrays.stream(garden)
                 .collect(groupingBy(p -> p.lifeCycle,
                         () -> new EnumMap<>(LifeCycle.class), toSet())));

@@ -1,5 +1,8 @@
 package effectivejava.chapter6.item34;
 
+/**
+ * 第34条： 使用枚举类型替代整型常量
+ */
 // Enum type with data and behavior  (159-160)
 // 带有数据和行为的枚举类型
 public enum Planet {
