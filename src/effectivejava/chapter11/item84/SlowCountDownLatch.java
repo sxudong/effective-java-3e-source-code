@@ -1,6 +1,10 @@
 package effectivejava.chapter11.item84;
 
+/**
+ * 第84条：不要依赖于线程调度器
+ */
 // Awful CountDownLatch implementation - busy-waits incessantly!  - Pages 336-7
+// 糟糕的CountDownLatch实现-繁忙等待不断！
 public class SlowCountDownLatch {
     private int count;
 
