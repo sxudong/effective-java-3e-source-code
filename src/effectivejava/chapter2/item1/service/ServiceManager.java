@@ -1,4 +1,4 @@
-package effectivejava.chapter2.item2.service;
+package effectivejava.chapter2.item1.service;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

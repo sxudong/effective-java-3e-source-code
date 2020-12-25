@@ -2,6 +2,9 @@ package effectivejava.chapter2.item6;
 
 import java.util.Comparator;
 
+/**
+ * 第6条：避免创建不必要的对象
+ */
 // Hideously slow program! Can you spot the object creation? (Page 20)
 // 程序太慢了！ 您可以发现对象的创建吗？
 public class Sum {

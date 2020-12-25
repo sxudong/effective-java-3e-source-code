@@ -2,7 +2,6 @@ package effectivejava.chapter2.item8;
 
 import java.io.IOException;
 
-// Well-behaved client of resource with cleaner safety-net (Page 33)
 // 行为端正的客户，清理安全网
 public class Adult {
     public static void main(String[] args) {

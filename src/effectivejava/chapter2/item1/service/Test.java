@@ -1,4 +1,4 @@
-package effectivejava.chapter2.item2.service;
+package effectivejava.chapter2.item1.service;
 
 /**
  * 客户端测试类 
@@ -12,10 +12,10 @@ public class Test {
      * @throws ClassNotFoundException  
      */  
     public static void main(String[] args) throws ClassNotFoundException {
-        Class.forName("effectivejava.chapter2.item2.service.SubwayProviderImpl");
+        Class.forName("effectivejava.chapter2.item1.service.SubwayCardProviderImpl");
         SubWayInterface swi = ServiceManager.getService("一卡通");  
         swi.in();  
-        swi.out();  
+        swi.out();
     }  
 } 
 /* Output:

@@ -1,6 +1,9 @@
 package effectivejava.chapter2.item2.javabeans;
 
-// JavaBeans Pattern - allows inconsistency, mandates mutability  (pages 11-12)
+/**
+ * Bean模式不把参数放在构造器里，通过方法一个一个set进去。
+ */
+// JavaBeans模式-允许不一致，要求可变性
 public class NutritionFacts {
     // Parameters initialized to default values (if any)
     private int servingSize  = -1; // Required; no default value
@@ -20,6 +23,7 @@ public class NutritionFacts {
     public void setCarbohydrate(int val) { carbohydrate = val; }
 
     public static void main(String[] args) {
+        // JavaBean模式
         NutritionFacts cocaCola = new NutritionFacts();
         cocaCola.setServingSize(240);
         cocaCola.setServings(8);

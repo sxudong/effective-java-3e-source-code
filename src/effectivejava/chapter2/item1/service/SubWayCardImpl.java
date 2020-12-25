@@ -1,11 +1,11 @@
-package effectivejava.chapter2.item2.service;
+package effectivejava.chapter2.item1.service;
 
 /**
  * 一卡通地铁进出服务实现 
  * @author Administrator 
  * 
  */  
-public class SubWayImpl implements SubWayInterface {  
+public class SubWayCardImpl implements SubWayInterface {
   
     public boolean in() {  
         System.out.println("通过一卡通进入地铁");  

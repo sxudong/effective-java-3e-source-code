@@ -1,7 +1,9 @@
 package effectivejava.chapter2.item7;
 import java.util.*;
 
-// Can you spot the "memory leak"?  您可以发现“内存泄漏”吗？(Pages 20-23)
+/**
+ * 第7条：消除过期的对象引用
+ */
 public class Stack {
     private Object[] elements;
     private int size = 0;

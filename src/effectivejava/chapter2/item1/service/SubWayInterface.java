@@ -1,4 +1,4 @@
-package effectivejava.chapter2.item2.service;
+package effectivejava.chapter2.item1.service;
 
 /**
  * 进出地铁服务接口 
