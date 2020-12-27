@@ -25,7 +25,7 @@ public class Point {
 
 //    // 违反了里氏替代原则
 //    @Override public boolean equals(Object o) {
-//        // 类型校验
+//        // 类型校验，两个类类型不等返回false
 //        if (o == null || o.getClass() != getClass())
 //            return false;
 //        Point p = (Point) o;

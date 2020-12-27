@@ -8,11 +8,11 @@ public class Test {
     public static void main(String[] args) {
         // 方法一 keySet()没有值会new一个，之后每次返回都是同一个，而不是每次都创建一个KeySet。
         Map map = new HashMap<>();
-        Set<String> set = map.keySet();
+        Set<String> set = map.keySet(); // 第一次调用时会创建KeySet
         for (String s : set) {
             System.out.println(s + "," + map.get(s));
         }
-        Set<String> s = map.keySet(); // 第二次调用时不会再次创建KeySet
+        Set<String> s = map.keySet();  // 第二次调用时不会再次创建KeySet
 
         // 自动装箱
         // Long sum = 0L;

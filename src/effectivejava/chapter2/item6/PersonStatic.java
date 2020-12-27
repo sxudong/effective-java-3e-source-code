@@ -12,7 +12,7 @@ import java.util.TimeZone;
 public class PersonStatic { // 查询是否人口大爆炸时出生的
     private Date birthDate;
 
-    private static final Date Boow_START;
+    private static final Date Boow_START; // 使用常量重用对象
     private static final Date BooN_END;
 
     // 初始化赋值

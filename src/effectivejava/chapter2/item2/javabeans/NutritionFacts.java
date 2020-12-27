@@ -6,8 +6,8 @@ package effectivejava.chapter2.item2.javabeans;
 // JavaBeans模式-允许不一致，要求可变性
 public class NutritionFacts {
     // Parameters initialized to default values (if any)
-    private int servingSize  = -1; // Required; no default value
-    private int servings     = -1; // Required; no default value
+    private int servingSize  = -1; // 必须; 没有默认值
+    private int servings     = -1; // 必须; 没有默认值
     private int calories     = 0;
     private int fat          = 0;
     private int sodium       = 0;
