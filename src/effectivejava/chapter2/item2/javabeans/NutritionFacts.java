@@ -23,7 +23,7 @@ public class NutritionFacts {
     public void setCarbohydrate(int val) { carbohydrate = val; }
 
     public static void main(String[] args) {
-        // JavaBean模式
+        // 哪些参数需要值，哪些参数不需要值，没有一个明确的要求，用的时候依然很迷惑。
         NutritionFacts cocaCola = new NutritionFacts();
         cocaCola.setServingSize(240);
         cocaCola.setServings(8);

@@ -64,7 +64,7 @@ public class NutritionFacts { // 可口可乐营养成份表
     }
 
     public static void main(String[] args) {
-        // builder模式
+        // builder模式，它结合了可伸缩构造方法模式的“安全性”和JavaBean模式的“可读性”。
         NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
                 .calories(100).sodium(35).carbohydrate(27).build();
     }
