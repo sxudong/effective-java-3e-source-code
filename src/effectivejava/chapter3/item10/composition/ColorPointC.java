@@ -6,11 +6,12 @@ import effectivejava.chapter3.item10.Point;
 import java.util.Objects;
 
 // Adds a value component without violating the equals contract (page 44)
-public class ColorPoint {
+// 在不违反平等合约的情况下添加价值成分
+public class ColorPointC {
     private final Point point; // 私有的Point域
     private final Color color;
 
-    public ColorPoint(int x, int y, Color color) {
+    public ColorPointC(int x, int y, Color color) {
         point = new Point(x, y);
         this.color = Objects.requireNonNull(color);
     }
@@ -23,9 +24,9 @@ public class ColorPoint {
     }
 
     @Override public boolean equals(Object o) {
-        if (!(o instanceof ColorPoint))
+        if (!(o instanceof ColorPointC))
             return false;
-        ColorPoint cp = (ColorPoint) o;
+        ColorPointC cp = (ColorPointC) o;
         return cp.point.equals(point) && cp.color.equals(color);
     }
 
@@ -34,13 +35,13 @@ public class ColorPoint {
     }
 
     public static void main(String[] args) {
-        ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+        ColorPointC p1 = new ColorPointC(1, 2, Color.RED);
         Point p2 = new Point(1, 2);
-        ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
-
+        ColorPointC p3 = new ColorPointC(1, 2, Color.BLUE);
+        // 没有违反传递性
         System.out.printf("%s %s %s%n",
                 p1.equals(p2), p2.equals(p3), p1.equals(p3)); // false false false
-
+        // 没有违反非空性
         System.out.println(p1.equals(null)); // false
     }
 }

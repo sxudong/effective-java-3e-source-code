@@ -8,6 +8,7 @@ import java.util.*;
 public class WordList {
     public static void main(String[] args) {
         Set<String> s = new TreeSet<>();
+        // 在IDEA的Edit Configurations->Program arguments输入参数
         //Collections.addAll(s, args);
         Collections.addAll(s, new String[]{"d","c","b","a"});
         System.out.println(s);

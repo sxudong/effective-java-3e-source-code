@@ -32,11 +32,21 @@ public class Stack implements Cloneable {
         return size ==0;
     }
 
+    // 第一种方法错误,如果栈中保存的是对象,则克隆的就是对象的引用
+//    @Override public Stack clone() {
+//        try {
+//            return (Stack) super.clone();
+//        } catch (CloneNotSupportedException e) {
+//            throw new AssertionError();
+//        }
+//    }
+
+    // 第二种正确类型
     // Clone method for class with references to mutable state 引用可变状态的类的克隆方法
     @Override public Stack clone() {
         try {
             Stack result = (Stack) super.clone();
-            result.elements = elements.clone();
+            result.elements = elements.clone(); // 调用数组的克隆方法
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
@@ -48,9 +58,15 @@ public class Stack implements Cloneable {
         if (elements.length == size)
             elements = Arrays.copyOf(elements, 2 * size + 1);
     }
-    
+
     // To see that clone works, call with several command line arguments
     public static void main(String[] args) {
+//        Stack s1 = new Stack();
+//        s1.push(1);
+//        Stack siClone = s1.clone( );
+//        System.out.println(s1.pop());
+//        System.out.println(siClone.pop());
+
         Stack stack = new Stack();
         //for (String arg : args)
         for (String arg : new String[]{"A","B","C"})

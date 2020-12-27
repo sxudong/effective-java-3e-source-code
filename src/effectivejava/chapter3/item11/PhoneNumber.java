@@ -5,7 +5,8 @@ import java.util.*;
  * 第11条：覆盖equals时总要覆盖hashcode
  */
 // Shows the need for overriding hashcode when you override equals (Pages 50-53 )
-public final class PhoneNumber {
+// 当您覆盖等于时显示需要覆盖hashCode
+public final class PhoneNumber { // 这是一个不变的类
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -32,8 +33,9 @@ public final class PhoneNumber {
 
 
     // Broken with no hashCode; works with any of the three below
+    // 没有hashCode损坏；适用于以下三个中的任何一个
 
-//    // Typical hashCode method 典型的hashCode方法 (Page 52)
+    // Typical hashCode method 典型的hashCode方法 (Page 52)
     @Override public int hashCode() {
         int result = Short.hashCode(areaCode);
         result = 31 * result + Short.hashCode(prefix);
@@ -42,6 +44,7 @@ public final class PhoneNumber {
     }
 
     // One-line hashCode method - mediocre performance 中等表现  (page 53)
+    // 方法三
     // Objects类有一个静态方法，它带有任意数量的对象，并为它们返回一个散列码。这个方法名为 hash，遗憾的是运行速度更慢一些。
 //    @Override public int hashCode() {
 //        return Objects.hash(lineNum, prefix, areaCode);

@@ -4,7 +4,7 @@ package effectivejava.chapter3.item12;
  * 第12条：始终要覆盖toString
  */
 // Adding a toString method to PhoneNumber (page 52)
-public final class PhoneNumber {
+public final class PhoneNumber { // 这是一个不变的类
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -49,6 +49,7 @@ public final class PhoneNumber {
      * For example, if the value of the line number is 123, the last
      * four characters of the string representation will be "0123".
      */
+    // 提供一个良好的 toString 实现使你的类更易于使用，并对使用此类的系统更易于调试。
     @Override public String toString() {
         return String.format("%03d-%03d-%04d",
                 areaCode, prefix, lineNum);
@@ -59,6 +60,10 @@ public final class PhoneNumber {
         System.out.println("Jenny's number: " + jenny);
     }
 }
-/* Output:
+/*
+默认Object的toString()输出,类名@散列码的16进制表示法:
+Jenny's number: effectivejava.chapter3.item12.PhoneNumber@adbbd
+
+重写的toString()输出:
 Jenny's number: 707-867-5309
  */
