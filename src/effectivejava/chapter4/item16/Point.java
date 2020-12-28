@@ -4,7 +4,7 @@ package effectivejava.chapter4.item16;
  * 第16条：要在公有类而非公有域中使用访问方法
  */
 // Encapsulation of data by accessor methods and mutators  (Page 78)
-// 通过访问器方法和更改器封装数据
+// 用公有设值方法封装数据
 class Point {
     private double x;
     private double y;

@@ -5,8 +5,8 @@ package effectivejava.chapter4.item16;
  */
 // Public class with exposed immutable fields - questionable   (Page 64)
 // 具有公有的不可变字段域 - 可疑
-public final class Time {
-    private static final int HOURS_PER_DAY    = 24;
+public final class Time { // 不可变的类
+    private static final int HOURS_PER_DAY    = 24; // 不可变的域
     private static final int MINUTES_PER_HOUR = 60;
 
     public final int hour;    // 公有final不可变域
@@ -22,4 +22,8 @@ public final class Time {
     }
 
     // Remainder omitted
+
+    public static void main(String[] args) {
+        System.out.println(Time.HOURS_PER_DAY);
+    }
 }

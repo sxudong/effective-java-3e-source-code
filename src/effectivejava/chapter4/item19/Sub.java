@@ -2,6 +2,7 @@ package effectivejava.chapter4.item19;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 /**
  *第19条：要么设计继承并提供文档说明，要么禁止继承
@@ -23,6 +24,7 @@ public final class Sub extends Super {
         System.out.println(instant);
     }
 
+    // 这个程序不会抛出 NullPointerException的唯一原因是 println 方法容忍 null 参数。
     public static void main(String[] args) {
         Sub sub = new Sub();
         sub.overrideMe();
