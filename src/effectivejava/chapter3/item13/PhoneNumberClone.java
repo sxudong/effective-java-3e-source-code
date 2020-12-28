@@ -44,6 +44,7 @@ public final class PhoneNumberClone {
                 areaCode, prefix, lineNum);
     }
 
+    // 使用拷贝构造器替代clone方法
     public static PhoneNumberClone newInstance(PhoneNumberClone p) {
         return new PhoneNumberClone(p.areaCode, p.prefix, p.lineNum);
     }

@@ -7,7 +7,7 @@ import java.util.Map;
  * 第13条：谨慎地覆盖clone
  */
 // Adding a clone method to PhoneNumber (page 59)
-public final class PhoneNumber implements Cloneable {
+public final class PhoneNumber implements Cloneable { // 实现克隆接口
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -72,7 +72,7 @@ public final class PhoneNumber implements Cloneable {
         System.out.println(pn.clone());
         Map<PhoneNumber, String> m = new HashMap<>();
         m.put(pn, "Jenny");
-        System.out.println(m.get(pn.clone()));
+        System.out.println(m.get(pn.clone())); //通过克隆方法成功获取Map中的存储的值
     }
 }
 /* Output:

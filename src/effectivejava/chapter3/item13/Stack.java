@@ -64,8 +64,8 @@ public class Stack implements Cloneable {
 //        Stack s1 = new Stack();
 //        s1.push(1);
 //        Stack siClone = s1.clone( );
-//        System.out.println(s1.pop());
-//        System.out.println(siClone.pop());
+//        System.out.println(s1.pop());      // 1
+//        System.out.println(siClone.pop()); // 1  正确输出对象值
 
         Stack stack = new Stack();
         //for (String arg : args)
