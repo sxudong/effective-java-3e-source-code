@@ -1,5 +1,6 @@
 package effectivejava.chapter5.item30;
 
+import java.util.Collections;
 import java.util.function.UnaryOperator;
 
 /**
@@ -8,7 +9,7 @@ import java.util.function.UnaryOperator;
 // Generic singleton factory pattern (Page 136-7)
 // 泛型单例工厂模式
 public class GenericSingletonFactory {
-    // Generic singleton factory pattern 泛型单例工厂模式
+    // 泛型单例工厂模式
     private static UnaryOperator<Object> IDENTITY_FN = (t) -> t;
 
     // 泛型方法

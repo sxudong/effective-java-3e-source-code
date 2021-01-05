@@ -1,5 +1,7 @@
 package effectivejava.chapter5.item32;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ public class Dangerous {
     }
 
     public static void main(String[] args) {
-        dangerous(List.of("There be dragons!"));
+        dangerous(List.of("There be dragons!", "abc"));
     }
 }
 /* Output:

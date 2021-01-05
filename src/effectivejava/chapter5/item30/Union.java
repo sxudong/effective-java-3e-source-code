@@ -19,7 +19,7 @@ public class Union { // 普通类（非泛型类）
     public static void main(String[] args) {
         Set<String> guys = Set.of("Tom", "Dick", "Harry");
         Set<String> stooges = Set.of("Larry", "Moe", "Curly");
-        Set<String> aflCio = union(guys, stooges);
+        Set<String> aflCio = union(guys, stooges); // Set<E>这里的E是String
         System.out.println(aflCio);
     }
 }

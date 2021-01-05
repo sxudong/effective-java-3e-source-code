@@ -8,19 +8,19 @@ import java.util.Arrays;
  * @param <E>
  */
 // Generic stack using E[] (Pages 103)
-// 泛型栈使用E[]
+// 方案一：泛型栈使用E[]
 public class Stack<E> {
+    //这里会导致堆污染，在运行时，E 会被擦除为 Object，elements 数组就是 Object[] 类型
+    //除非传入的 E 正好是Object
     private E[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    // The elements array will contain only E instances from push(E).
-    // This is sufficient to ensure type safety, but the runtime
-    // type of the array won't be E[]; it will always be Object[]!
-    // elements数组包含的E来自push(E)方法
-    // 这足以确保类型安全，但是数组的运行时类型将不是E []； 它永远是Object []！
+    // elements数组包含的E来自push(E)方法中的数组引用指向对象
+    // 这足以确保类型安全，但是数组的运行时类型将不是E[]；它永远是Object []！
     @SuppressWarnings("unchecked")
     public Stack() {
+        // Object[]转换为E[]
         elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
     }
 
@@ -33,7 +33,7 @@ public class Stack<E> {
         if (size == 0)
             throw new EmptyStackException();
         E result = elements[--size];
-        elements[size] = null; // Eliminate obsolete reference 消费过期索引
+        elements[size] = null; //消费过期索引
         return result;
     }
 
@@ -46,8 +46,6 @@ public class Stack<E> {
             elements = Arrays.copyOf(elements, 2 * size + 1);
     }
 
-    // Little program to exercise our generic Stack
-    // 锻炼我们泛型堆栈的小程序
     public static void main(String[] args) {
         Stack<String> stack = new Stack<>();
         //for (String arg : args)

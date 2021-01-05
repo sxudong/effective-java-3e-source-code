@@ -10,7 +10,8 @@ import effectivejava.chapter5.item29.EmptyStackException;
 // Generic stack using Object[] (Pages 130-3)
 // 泛型栈使用Object[]
 public class Stack<E> {
-    private Object[] elements;
+    //private E[] elements;
+    private Object[] elements; // 使用Object[]消除创建泛型数组错误
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
@@ -23,17 +24,17 @@ public class Stack<E> {
         elements[size++] = e;
     }
 
-    // Appropriate suppression of unchecked warning 适当抑制未经检查的警告
+    // 适当抑制未经检查的警告
     public E pop() {
         if (size == 0)
             throw new EmptyStackException();
 
-        // push requires elements to be of type E, so cast is correct
         // push要求元素的类型为E，因此强制转换正确
+        // 根据27条的建议，我们只在包含未受检转换的任务上禁止警告
         @SuppressWarnings("unchecked")
         E result = (E) elements[--size]; // 每次读取的时候都要转换一次
 
-        elements[size] = null; // Eliminate obsolete reference 消除过期的索引
+        elements[size] = null; // 消除过期的索引
         return result;
     }
 
@@ -46,8 +47,6 @@ public class Stack<E> {
             elements = Arrays.copyOf(elements, 2 * size + 1);
     }
 
-    // Little program to exercise our generic Stack
-    // 练习泛型堆栈的小程序
     public static void main(String[] args) {
         Stack<String> stack = new Stack<>();
         //for (String arg : args)

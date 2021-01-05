@@ -6,7 +6,7 @@ import java.util.*;
  * @param <E>
  */
 // Generic stack with bulk methods using wildcard types (Pages 109)
-// 具有通配符类型的批量方法的泛型堆栈
+// 使用“有限制的通配符类型”的批量方法的泛型堆栈
 public class Stack<E> {
     private E[] elements;
     private int size = 0;
@@ -15,6 +15,8 @@ public class Stack<E> {
     // The elements array will contain only E instances from push(E).
     // This is sufficient to ensure type safety, but the runtime
     // type of the array won't be E[]; it will always be Object[]!
+    // elements数组将仅包含来自push（E）的E个实例。
+    // 这足以确保类型安全，但是数组的运行时类型将不是E []；它永远是Object []！
     @SuppressWarnings("unchecked")
     public Stack() {
         elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
@@ -42,7 +44,7 @@ public class Stack<E> {
             elements = Arrays.copyOf(elements, 2 * size + 1);
     }
 
-//    // pushAll static factory without wildcard type - deficient!
+//    // pushAll 没有通配符类型的静态工厂 - 不灵活！
 //    public void pushAll(Iterable<E> src) {
 //        for (E e : src)
 //            push(e);
@@ -50,12 +52,12 @@ public class Stack<E> {
 
      // Wildcard type for parameter that serves as an E producer
      // 对E为生产者的输入参数使用通配符 <? extends E>
-    public void pushAll(Iterable<? extends E> src) { // src参数产生E实例代Stack使用
+    public void pushAll(Iterable<? extends E> src) { // src参数产生E实例给Stack使用,通配符 ？是 E或E的子类
         for (E e : src)
             push(e);
     }
 
-//    // popAll static factory without wildcard type - deficient!
+//    // popAll 没有通配符类型的静态工厂 - 不灵活！
 //    public void popAll(Collection<E> dst) {
 //        while (!isEmpty())
 //            dst.add(pop());
@@ -63,19 +65,19 @@ public class Stack<E> {
 
     // Wildcard type for parameter that serves as an E consumer
     // 对E为消费者的输入参数使用通配符 <? super E>
-    public void popAll(Collection<? super E> dst) { // dst参数通过Stack消费E实例
+    public void popAll(Collection<? super E> dst) { // dst参数通过Stack消费E实例,通配符 ？是 E或E的父类
         while (!isEmpty())
-            dst.add(pop());
+            dst.add(pop()); // public Number pop(), Collection<E>接口里的add(E var1)方法使用的是泛型，所以只能add添加E或E的子类
     }
 
-    // Little program to exercise our generic Stack 练习我们通用堆栈的小程序
     public static void main(String[] args) {
-        Stack<Number> numberStack = new Stack<>();
+        Stack<Number> numberStack = new Stack<>(); //这里的Stack<E>里的E是Number
         Iterable<Integer> integers = Arrays.asList(3, 1, 4, 1, 5, 9);
-        numberStack.pushAll(integers);
+        numberStack.pushAll(integers); //Iterable<? extends E> E是Number，？是Integer，Integer是Number的子类
 
+        //Collection<? super Number> dst = new ArrayList<Object>();
         Collection<Object> objects = new ArrayList<>();
-        numberStack.popAll(objects);
+        numberStack.popAll(objects); //Collection<? super Number>, ？是Object，Object是Number的父类
 
         System.out.println(objects);
     }

@@ -10,13 +10,14 @@ import java.util.concurrent.ThreadLocalRandom;
 // 微小的堆污染
 public class PickTwo {
     // UNSAFE - Exposes a reference to its generic parameter array!
-    // UNSAFE - 公开对其泛型参数数组的引用！
+    // 很危险，该方法返回其可变参数数组，它会将堆污染传到调用栈上
     static <T> T[] toArray(T... args) {
-        return args;
+        return args; //配置了一个Object[]的数组返回
     }
 
     static <T> T[] pickTwo(T a, T b, T c) {
         switch(ThreadLocalRandom.current().nextInt(3)) {
+            //在编译这个方法时，编译器会产生代码，创建一个可变数组，并将两个T实例传到toArray()
             case 0: return toArray(a, b);
             case 1: return toArray(a, c);
             case 2: return toArray(b, c); // 实际导致污染的方法

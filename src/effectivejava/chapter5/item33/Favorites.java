@@ -11,6 +11,7 @@ public class Favorites {
 
     public <T> T getFavorite(Class<T> type) {
         // 使用了Class.cast()方法，检验它的参数是否为Class对象所表示的类型实例
+        // favorites.get(type)返回的是Object，type.cast将对象引用“动态转换”成了“Class对象所表示的参数类型T”。
         return type.cast(favorites.get(type));
     }
 
@@ -18,7 +19,7 @@ public class Favorites {
 //        favorites.put(Objects.requireNonNull(type), instance);
 //    }
 
-    // 确保Favorites永远不违背它的类型约束条件的方式是，让putFavorite()方法检验instance是否真的是type所表示的类型的实例
+    // 确保Favorites永远不违背它的类型约束条件的方式是，让putFavorite()方法检验instance是否真的是“type所表示的类型的实例”
     // Achieving runtime type safety with a dynamic cast 通过动态强制转换实现运行时类型安全
     public <T> void putFavorite(Class<T> type, T instance) {
         favorites.put(Objects.requireNonNull(type), type.cast(instance));
@@ -44,16 +45,15 @@ public class Favorites {
                 favoriteInteger, favoriteClass.getName());
     }
 
-    // Class#cast(obj)方法源码
-//    @HotSpotIntrinsicCandidate
+    // java.lang.Class#cast(obj)方法源码
+//    @SuppressWarnings("unchecked")
 //    public T cast(Object obj) {
-//        if (obj != null && !this.isInstance(obj)) {
-//            throw new ClassCastException(this.cannotCastMsg(obj));
-//        } else {
-//            return obj;
-//        }
+//        if (obj != null && !isInstance(obj))
+//            throw new ClassCastException(cannotCastMsg(obj));
+//        return (T) obj; // 返回类型是Class对象的类型参数
 //    }
-
+//
+//    public native boolean isInstance(Object obj);
 }
 /* Output:
 C++ cafebabe effectivejava.chapter5.item33.Favorites

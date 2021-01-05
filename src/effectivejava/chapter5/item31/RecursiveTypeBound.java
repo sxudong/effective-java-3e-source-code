@@ -23,6 +23,10 @@ public class RecursiveTypeBound { // 非泛型类
     public static void main(String[] args) {
 //        List<String> argList = Arrays.asList(args);
         List<String> argList = Arrays.asList("1","2","3");
-        System.out.println(max(argList));
+        System.out.println(max(argList)); // 3
+    }
+    public static void swap(List<?> list, int i, int j) {
+        //list.set(i, list.set(j, list.get(i)));//Error:(45, 39) java: 不兼容的类型: java.lang.Object无法转换为capture#1
+        // List<E> 中的set方法：E set(int var1, E var2);
     }
 }

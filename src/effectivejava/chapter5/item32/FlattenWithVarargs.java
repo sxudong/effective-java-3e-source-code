@@ -15,19 +15,20 @@ public class FlattenWithVarargs {
     //static <T> List<Integer> flatten(List<? extends T>... lists) {
     static <T> List<T> flatten(List<? extends T>... lists) {
         List<T> result = new ArrayList<>();
+        // 遍历lists数组，保存到List中去，并返回。避免了堆污染。
         for (List<? extends T> list : lists)
             result.addAll(list);
         //return (List<Integer>) result;
         return result;
     }
 
-    // 去掉@SafeVarargs，在命令行下编译提示“使用了未经检查或不安全的操作”
+    // 去掉@SafeVarargs，用命令编译提示“使用了未经检查或不安全的操作”
 //    PS F:\code\effective-java-3e-source-code\src\effectivejava\chapter5\item32> javac FlattenWithVarargs.java
 //    注: FlattenWithVarargs.java使用了未经检查或不安全的操作。
 //    注: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
 
     public static void main(String[] args) {
-        // 可变参数泛型方法，需要存和取两端都定义好参数类型，存和取的参数类型要一致，不然取出来的数据转换就容易失败，不知道是什么了？
+        // 可变参数泛型方法，需要存和取两端都定义好参数类型，存和取的参数类型要一致，不然取出来的数据转换就容易失败
         List<Integer> flatList = flatten(
                 List.of(1, 2), List.of(3, 4, 5), List.of(6, 7)); // 编译器将自动获取到List<Object>转换为List<Integer>
         System.out.println(flatList);

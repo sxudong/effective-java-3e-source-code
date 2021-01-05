@@ -8,8 +8,8 @@ import java.util.List;
  */
 // List as a typesafe alternative to a generic varargs parameter (page 149)
 public class FlattenWithList {
-
-    static <T> List<T> flatten(List<List<? extends T>> lists) { // List参数代替可替代可变参数
+    // 如果不想使用@SafeVarargs注解,List参数可替代可变参数
+    static <T> List<T> flatten(List<List<? extends T>> lists) {
         List<T> result = new ArrayList<>();
         for (List<? extends T> list : lists)
             result.addAll(list);
@@ -22,7 +22,7 @@ public class FlattenWithList {
         System.out.println(flatList);
     }
 
-    // JDK9 List.of()源码
+//    // JDK9 List.of()源码
 //    @SafeVarargs
 //    static <E> List<E> of(E... elements) {
 //        switch(elements.length) {

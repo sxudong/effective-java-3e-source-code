@@ -13,27 +13,19 @@ import java.lang.annotation.*;
     public String value(); 
 } 
   
-// call Annotation for method 
-// and pass values for annotation 
+// call Annotation for method and pass values for annotation
 @Annotation(key = "GFG", value = "GeeksForGeeks")
 public class Test {
 
-    public static void main(String[] args) 
-        throws ClassNotFoundException 
-    { 
+    public static void main(String[] args) throws ClassNotFoundException {
   
         // returns the Class object for this class 
         Class myClass = Test.class; 
   
-        System.out.println("Class represented by myClass:"
-                           + myClass.toString()); 
+        System.out.println("Class represented by myClass:" + myClass.toString());
   
-        // Get the annotation 
-        // using getAnnotation() method 
-        System.out.println( 
-            "Annotation of myClass:"
-            + myClass.getAnnotation( 
-                  Annotation.class)); 
+        // Get the annotation using getAnnotation() method
+        System.out.println( "Annotation of myClass:" + myClass.getAnnotation(Annotation.class));
     } 
 } // https://vimsky.com/examples/usage/class-getannotation-method-in-java-with-examples.html
 /* Output:
