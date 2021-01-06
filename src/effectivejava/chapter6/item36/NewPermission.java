@@ -15,16 +15,16 @@ package effectivejava.chapter6.item36;
  */
 public class NewPermission {
 	// 是否允许查询，二进制第1位，0表示否，1表示是
-	public static final int ALLOW_SELECT = 1 << 0; // 0001
+	public static final int ALLOW_SELECT = 1 << 0; // 0001   十进制数1
 
 	// 是否允许新增，二进制第2位，0表示否，1表示是
-	public static final int ALLOW_INSERT = 1 << 1; // 0010
+	public static final int ALLOW_INSERT = 1 << 1; // 0010   十进制数2
 
 	// 是否允许修改，二进制第3位，0表示否，1表示是
-	public static final int ALLOW_UPDATE = 1 << 2; // 0100
+	public static final int ALLOW_UPDATE = 1 << 2; // 0100   十进制数4
 
 	// 是否允许删除，二进制第4位，0表示否，1表示是
-	public static final int ALLOW_DELETE = 1 << 3; // 1000
+	public static final int ALLOW_DELETE = 1 << 3; // 1000   十进制数8
 
 	// 存储目前的权限状态
 	private int flag;
