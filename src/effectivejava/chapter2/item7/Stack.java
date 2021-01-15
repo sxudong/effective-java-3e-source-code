@@ -18,11 +18,11 @@ public class Stack {
         elements[size++] = e;
     }
 
-    public Object pop() {
-        if (size == 0)
-            throw new EmptyStackException();
-        return elements[--size];
-    }
+//    public Object pop() {
+//        if (size == 0)
+//            throw new EmptyStackException();
+//        return elements[--size];
+//    }
 
     /**
      * Ensure space for at least one more element, roughly
@@ -33,14 +33,14 @@ public class Stack {
             elements = Arrays.copyOf(elements, 2 * size + 1);
     }
 
-//    // Corrected version of pop method 修正的弹出方法版本(Page 22)
-//    public Object pop() {
-//        if (size == 0)
-//            throw new EmptyStackException();
-//        Object result = elements[--size];
-//        elements[size] = null; // Eliminate obsolete reference 消除过期的引用
-//        return result;
-//    }
+    // Corrected version of pop method 修正的弹出方法版本(Page 22)
+    public Object pop() {
+        if (size == 0)
+            throw new EmptyStackException();
+        Object result = elements[--size];
+        elements[size] = null; // 消除过期的引用,等待回收
+        return result;
+    }
 
     public static void main(String[] args) {
         Stack stack = new Stack();

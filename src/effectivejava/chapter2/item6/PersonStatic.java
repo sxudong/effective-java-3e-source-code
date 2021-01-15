@@ -15,6 +15,10 @@ public class PersonStatic { // 查询是否人口大爆炸时出生的
     private static final Date Boow_START; // 使用常量重用对象
     private static final Date BooN_END;
 
+    public PersonStatic(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
     // 初始化赋值
     static {
         Calendar gmtcal = Calendar.getInstance(TimeZone.getTimeZone("GNT"));
@@ -25,6 +29,14 @@ public class PersonStatic { // 查询是否人口大爆炸时出生的
     }
 
     public boolean isBabyBoomer() {
-    return birthDate.compareTo(Boow_START) >= 0 &&birthDate.compareTo(BooN_END) < 0;
+        return birthDate.compareTo(Boow_START) >= 0 && birthDate.compareTo(BooN_END) < 0;
+    }
+
+    public static void main(String[] args) {
+        Calendar gmtcal = Calendar.getInstance(TimeZone.getTimeZone("GNT"));
+        gmtcal.set(1964, Calendar.JANUARY,1, 0, 0,0);
+
+        PersonStatic personStatic = new PersonStatic(gmtcal.getTime());
+        System.out.println(personStatic.isBabyBoomer());
     }
 }

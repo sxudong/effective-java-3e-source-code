@@ -12,6 +12,8 @@ package effectivejava.chapter6.item36;
  *  3（0011）	0	 0	  1	   1
  *  0（0000）	0	 0	  0	   0
  *  15（1111）	1	 1	  1	   1
+ *
+ *  以上叫做位图法，但是有更好的方案来传递多组常量 —— EnumSet。
  */
 public class NewPermission {
 	// 是否允许查询，二进制第1位，0表示否，1表示是

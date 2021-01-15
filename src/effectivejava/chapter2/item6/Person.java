@@ -11,6 +11,10 @@ import java.util.TimeZone;
 public class Person { // 查询是否人口大爆炸时出生的
     private Date birthDate;
 
+    public Person(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
     public boolean isBabyBoomer() {
         Calendar gmtcal = Calendar.getInstance(TimeZone.getTimeZone("GNT"));
         gmtcal.set(1964, Calendar.JANUARY, 1, 0, 0, 0);

@@ -14,6 +14,7 @@ public class Text2 {
         STRIKETHROUGH // 删除线
     }
 
+    // 注意此处，使用的是Set而不是EnumSet
     public void applyStyles(Set<Style> styles) {
         System.out.printf("Applying styles %s to text%n", Objects.requireNonNull(styles));
     }

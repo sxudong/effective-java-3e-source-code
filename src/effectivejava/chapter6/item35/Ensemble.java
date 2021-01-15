@@ -11,6 +11,27 @@ public enum Ensemble {
     NONET(9), DECTET(10), TRIPLE_QUARTET(12);
 
     private final int numberOfMusicians;
-    Ensemble(int size) { this.numberOfMusicians = size; }
-    public int numberOfMusicians() { return numberOfMusicians; }
+
+    Ensemble(int size) {
+        this.numberOfMusicians = size;
+    }
+
+    public int numberOfMusicians() {
+        return numberOfMusicians;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Ensemble.SEXTET.numberOfMusicians()); // 6
+    }
 }
+
+// bad solution 不好的解决方案
+//public enum Ensemble {
+//    SOLO, DUET, TRIO, QUARTET, QUINTET,
+//    SEXTET, SEPTET, OCTET, NONET, DECTET;
+//
+//    public int numberOfMusicians() {
+//        // 所有的枚举都有一个ordinal方法，它返回每个枚举常量在类型中的数字位置。
+//        return ordinal() + 1;
+//    }
+//}
