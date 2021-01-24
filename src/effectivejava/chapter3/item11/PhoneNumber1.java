@@ -63,10 +63,13 @@ public final class PhoneNumber1 { //这是一个不变的类
         map.put(new PhoneNumber1(707, 867, 5309), "Jenny");
         // 如果不覆盖hoshCode方法，输出null。覆盖后输出Jenny
         System.out.println(map.get(new PhoneNumber1(707, 867, 5309)));
+        PhoneNumber1 phoneNumber11 = new PhoneNumber1(1, 1, 1);
         System.out.println(new PhoneNumber1(1,1,1));
         PhoneNumber1 phoneNumber1 = new PhoneNumber1(2, 3, 4);
         System.out.println(phoneNumber1);
         System.out.println(phoneNumber1); // 第二次没有计算哈希值,直接返回缓存的哈希值
+        System.out.println(phoneNumber11.equals(phoneNumber1));
+
     }
 }
 /*
