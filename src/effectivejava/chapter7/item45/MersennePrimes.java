@@ -1,8 +1,7 @@
 package effectivejava.chapter7.item45;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static java.math.BigInteger.*;
@@ -14,11 +13,15 @@ import static java.math.BigInteger.*;
 // 使用流生成20个 Mersenne 素数
 public class MersennePrimes {
     static Stream<BigInteger> primes() {
-        return Stream.iterate(TWO, BigInteger::nextProbablePrime); // 下一个可能的素素，随机的
+        // 下一个可能的素素，随机的
+        return Stream.iterate(TWO, BigInteger::nextProbablePrime);
     }
 
-    //java.math.BigInteger.pow(int exponent) 返回一个BigInteger，其值是 (this的指数)，该指数是一个整数，而不是一个BigInteger。
+    //java.math.BigInteger.pow(int exponent) 返回一个BigInteger，
+    //其值是 (this的指数)，该指数是一个整数，而不是一个BigInteger。
     public static void main(String[] args) {
+        // 2 的幂次方减1 （2p - 1）
+        // BigInteger已经有了intValue(). intValueExact()用于在BigInteger没有精确的int值时抛出错误,比如int值超出范围
         primes().map(p -> TWO.pow(p.intValueExact()).subtract(ONE))
                 .filter(mersenne -> mersenne.isProbablePrime(50))
                 .limit(20)
@@ -28,13 +31,26 @@ public class MersennePrimes {
         ints.add(new BigInteger("3"));
         ints.add(new BigInteger("31"));
         ints.add(new BigInteger("8191"));
+        ints.add(new BigInteger("2147483647"));
         ints.forEach(i -> System.out.println(i.bitLength() + ": " + i));
+
+        // 将每个值都映射到包含原始值和新值的一个对象对中。
+        Stream<Integer> stream = Arrays.asList(1, 2, 3, 4, 5).stream();
+        stream.map(i -> {
+            Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+            map.put(i, i + 1);
+            return map;
+        }).forEach(map -> {
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                System.out.println("键 key ：" + entry.getKey() + " 值value ：" + entry.getValue());
+            }
+        });
     }
 }
-/* Output:
-2: 3
-3: 7
-5: 31
+/* 梅森素数是 2的幂次方法-1 Output:
+2: 3      // 2 * 2 -1 = 3
+3: 7      // 2 * 2 * 2 -1 = 7
+5: 31     // 2 * 2 * 2 * 2 * 2 -1 = 7
 7: 127
 13: 8191
 19: 524287

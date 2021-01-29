@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -22,24 +20,26 @@ public class HybridAnagrams {
 //        Path dictionary = Paths.get(args[0]);
 //        int minGroupSize = Integer.parseInt(args[1]);
         Path dictionary = Paths.get("F:\\code\\effective-java-3e-source-code\\src\\effectivejava\\Examples.txt");
-        int minGroupSize = Integer.parseInt("1");
+        int minGroupSize = Integer.parseInt("3");
 
         try (Stream<String> words = Files.lines(dictionary)) {
-            // 测试groupingBy()最简单的方法,一个分词器的输出结果
-            Map<String, List<String>> collect = words.collect(groupingBy(word -> alphabetize(word))); // 所有单词的字母按顺序排列做key,值是单词
-            System.out.println(collect);
-        }
-        System.out.println();
-
-        try (Stream<String> words = Files.lines(dictionary)) {
-            words.collect(groupingBy(word -> alphabetize(word)))
+            // 所有单词的字母按顺序排列做key,值是单词
+            words.map(row -> row.split(" "))
+                    .flatMap(Arrays::stream)
+                    .distinct()
+                    .collect(groupingBy(word -> alphabetize(word)))
                     .values().stream()
                     .filter(group -> group.size() >= minGroupSize)
                     .forEach(group -> System.out.println(group.size() + ": " + group));
+
+//            words.collect(groupingBy(word -> alphabetize(word)))
+//                    .values().stream()
+//                    .filter(group -> group.size() >= minGroupSize)
+//                    .forEach(group -> System.out.println(group.size() + ": " + group));
         }
     }
 
-    // 使用辅助方法，提高代码可读性
+    // 使用helper辅助方法，提高代码可读性
     private static String alphabetize(String s) {
         char[] a = s.toCharArray();
         Arrays.sort(a);
