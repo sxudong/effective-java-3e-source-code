@@ -13,6 +13,7 @@ public class Adapters {
     // Adapter from  Stream<E> to Iterable<E>
     // 从Stream<E> 到 Iterable<E> 的适配器
     public static <E> Iterable<E> iterableOf(Stream<E> stream) {
+        // Stream接口中有iterator方法
         return stream::iterator;
     }
 
