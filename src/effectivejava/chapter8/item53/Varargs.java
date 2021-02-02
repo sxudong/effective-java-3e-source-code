@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
  */
 // Sample uses of varargs 简单使用可变参数 (Pages 245-6)
 public class Varargs {
-    // Simple use of varargs (Page 245)
+    // 简单使用可变参数
     static int sum(int... args) {
         int sum = 0;
         for (int arg : args)

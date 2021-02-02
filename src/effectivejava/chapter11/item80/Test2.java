@@ -8,9 +8,11 @@ public class Test2 {
     // https://cloud.tencent.com/developer/article/1444259
     public static void test() throws InterruptedException, ExecutionException {
         Executor executor = Executors.newFixedThreadPool(3);
+        // new ExecutorCompletionService
         CompletionService<String> service = new ExecutorCompletionService<>(executor);
-        for (int i = 0 ; i < 5 ;i++) {
+        for (int i = 0; i < 5; i++) {
             int seqNo = i;
+            //Future<V> submit(Callable<V> task):提交一个Callable类型任务，并返回该任务执行结果关联的Future
             service.submit(new Callable<String>() {
                 @Override
                 public String call() throws Exception {
@@ -18,7 +20,7 @@ public class Test2 {
                 }
             });
         }
-        for (int j = 0 ; j < 5; j++) {
+        for (int j = 0; j < 5; j++) {
             System.out.println(service.take().get());
         }
     }

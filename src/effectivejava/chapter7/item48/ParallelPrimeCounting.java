@@ -11,7 +11,7 @@ public class ParallelPrimeCounting {
     // 质数计数流管道 - 并行版本（页225）
     static long pi(long n) {
         return LongStream.rangeClosed(2, n)
-                .parallel()
+                .parallel() //并行
                 .mapToObj(BigInteger::valueOf)
                 .filter(i -> i.isProbablePrime(50))
                 .count();
